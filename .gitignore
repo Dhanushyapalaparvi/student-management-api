@@ -1,0 +1,118 @@
+
+# ==========================================
+# ENVIRONMENT VARIABLES AND SECRETS
+# ==========================================
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# PYTHON CACHE AND COMPILED FILES
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==========================================
+# VIRTUAL ENVIRONMENTS
+# ==========================================
+venv/
+env/
+.venv/
+studentenv/
+
+# ==========================================
+# PYTEST AND TESTING
+# ==========================================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# ==========================================
+# SQLITE DATABASE FILES
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# ==========================================
+# ALEMBIC TEMPORARY FILES
+# ==========================================
+alembic/__pycache__/
+alembic/versions/__pycache__/
+
+# ==========================================
+# IDE AND EDITOR FILES
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==========================================
+# OPERATING SYSTEM FILES
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# LOG FILES
+# ==========================================
+*.log
+
+# ==========================================
+# BUILD AND DISTRIBUTION
+# ==========================================
+build/
+dist/
+*.egg-info/
+```
+
+### 3. Important: What should Git track?
+
+| File/folder | Git tracking |
+|---|---|
+| `app/` | <badge color="success">Track</badge> |
+| `tests/` | <badge color="success">Track</badge> |
+| `alembic/versions/` | <badge color="success">Track</badge> |
+| `alembic/env.py` | <badge color="success">Track</badge> |
+| `.env.example` | <badge color="success">Track</badge> |
+| `.gitignore` | <badge color="success">Track</badge> |
+| `studentenv/` | <badge color="danger">Ignore</badge> |
+| `.env` | <badge color="danger">Ignore</badge> |
+| `*.db` | <badge color="danger">Ignore</badge> |
+| `__pycache__/` | <badge color="danger">Ignore</badge> |
+| `.pytest_cache/` | <badge color="danger">Ignore</badge> |
+
+**Important:** Never ignore the Alembic migration scripts themselves. They are essential for reproducing your database schema.
+
+### 4. Verify your `.gitignore`
+
+Save the file and run these commands from your project root:
+
+```powershell
+git check-ignore studentenv/
+git check-ignore .pytest_cache/
+git check-ignore student_management.db
+git check-ignore .env
+```
+
+If those files exist, Git should report their ignored paths.
+
+Now check:
+
+```powershell
+git status
+```
+
+You should see your application source files and migrations available for tracking, but not your ignored files.
+
+<badge color="success">GitHub preparation</badge>
+
+**Next:** Send me your `git status` output. We'll review the files before staging and committing your Student Management API.
